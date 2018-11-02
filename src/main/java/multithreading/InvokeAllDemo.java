@@ -14,7 +14,7 @@ public class InvokeAllDemo {
     private static ExecutorService executorService = Executors.newFixedThreadPool(4);
 
 
-    private static void sendEmail(int time) {
+    public static void sendEmail(int time) {
 
         long start = System.currentTimeMillis();
         try {

@@ -15,5 +15,7 @@ public class StringValueOf {
         );*/
 //        System.out.println(testString.replace(String.valueOf(number), Integer.toString(++number)));
         System.out.println(StringUtils.isBlank(null));
+        System.out.println(new short[]{4,5,6}.getClass().getCanonicalName());
+
     }
 }

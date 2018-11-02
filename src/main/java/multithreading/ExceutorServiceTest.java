@@ -5,25 +5,14 @@ import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static multithreading.Utils.buildCallable;
+
 public class ExceutorServiceTest {
 
     private static ExecutorService executorService = Executors.newFixedThreadPool(4);
     private static AtomicInteger counter = new AtomicInteger(0);
 
-    private static Callable<String> sendEmail(int time) {
-        return () -> {
-            long start = System.currentTimeMillis();
-            try {
-                TimeUnit.MILLISECONDS.sleep(time);
-                System.out.println(counter.incrementAndGet() + ". Task " + time + " " + Thread.currentThread().getName() + " has been done, time elapsed = " + (System.currentTimeMillis() - start));
-                return "Task " + time + " " + Thread.currentThread().getName() + " done, time elapsed = " + (System.currentTimeMillis() - start);
-            } catch (InterruptedException e) {
-                System.out.println(counter.incrementAndGet() + ". Task " + time + " " + Thread.currentThread().getName() + " has been interrupted, time elapsed = " + (System.currentTimeMillis() - start));
-            }
-            return null;
-        };
 
-    }
 
 
     public static void main(String[] args) {
@@ -31,8 +20,8 @@ public class ExceutorServiceTest {
         long start = System.currentTimeMillis();
 
         List<Callable<String>> callables = Arrays.asList(
-                sendEmail(100), sendEmail(100), sendEmail(100), sendEmail(100), sendEmail(5000),
-                sendEmail(100), sendEmail(100), sendEmail(100), sendEmail(100), sendEmail(5000)
+                buildCallable(100), buildCallable(100), buildCallable(100), buildCallable(100), buildCallable(5000),
+                buildCallable(100), buildCallable(100), buildCallable(100), buildCallable(100), buildCallable(5000)
         );
 
         for(int i = 0; i < 20; i++){
@@ -53,6 +42,9 @@ public class ExceutorServiceTest {
             }
 
         }
+
+        executorService.shutdown();
+        executorService.shutdownNow();
 
         System.out.println("Finished main thread, time: " + (System.currentTimeMillis() - start));
     }
