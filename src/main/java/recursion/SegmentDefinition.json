@@ -1,0 +1,81 @@
+{
+  "op": "OR",
+  "criteria": [
+    {
+      "fieldType": "D",
+      "fieldId": "DEPARTURE_PAGE",
+      "actionTypeId": "PAGE_VIEWED",
+      "negated": "N",
+      "operatorId": "STARTS_WITH",
+      "parameter1": "s"
+    },
+    {
+      "op": "OR",
+      "criteria": [
+        {
+          "op": "AND",
+          "criteria": [
+            {
+              "op": "OR",
+              "criteria": [
+                {
+                  "fieldType": "D",
+                  "fieldId": "CITY",
+                  "actionTypeId": "SESSION",
+                  "negated": "N",
+                  "operatorId": "IS",
+                  "parameter1": "NEW DELHI"
+                },
+                {
+                  "fieldType": "D",
+                  "fieldId": "CITY",
+                  "actionTypeId": "SESSION",
+                  "negated": "N",
+                  "operatorId": "IS",
+                  "parameter1": "SANTA FE"
+                }
+              ]
+            },
+            {
+              "op": "OR",
+              "criteria": [
+                {
+                  "fieldType": "D",
+                  "fieldId": "POSTAL_CODE",
+                  "actionTypeId": "SESSION",
+                  "negated": "N",
+                  "operatorId": "IS",
+                  "parameter1": "24540"
+                },
+                {
+                  "fieldType": "D",
+                  "fieldId": "POSTAL_CODE",
+                  "actionTypeId": "SESSION",
+                  "negated": "N",
+                  "operatorId": "STARTS_WITH",
+                  "parameter1": "11"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fieldType": "D",
+          "fieldId": "CONTENT_CATEGORY_BOTTOM",
+          "actionTypeId": "PAGE_VIEWED",
+          "negated": "N",
+          "operatorId": "IS",
+          "parameter1": "SWEATER"
+        },
+        {
+          "fieldType": "D",
+          "fieldId": "DEPARTURE_PAGE",
+          "actionTypeId": "PAGE_VIEWED",
+          "negated": "N",
+          "operatorId": "IS",
+          "parameter1": "HOME PAGE"
+        }
+      ]
+    }
+  ]
+}
