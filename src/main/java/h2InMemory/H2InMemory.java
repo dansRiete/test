@@ -13,7 +13,7 @@ public class H2InMemory {
     private static final String DB_USER = "";
     private static final String DB_PASSWORD = "";
 
-    private static Connection getDBConnection() {
+    public static Connection getDBConnection() {
         Connection dbConnection = null;
         try {
             Class.forName(DB_DRIVER);
