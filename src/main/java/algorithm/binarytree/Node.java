@@ -1,4 +1,4 @@
-package collections.binarytree;
+package algorithm.binarytree;
 
 public class Node {
 
