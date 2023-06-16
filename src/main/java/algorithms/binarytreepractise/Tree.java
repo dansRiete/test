@@ -1,5 +1,7 @@
 package algorithms.binarytreepractise;
 
+import algorithm.binarytree.Node;
+
 public class Tree {
 
     private Node node;
